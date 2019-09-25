@@ -8,8 +8,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import NavigationUtil from '../navigator/NavigationUtil'
-
-import { BottomTabBar } from 'react-navigation-tabs';
+import { BottomTabBar } from 'react-navigation-tabs'
 
 const TABS = {
     PopularPage: {
@@ -82,7 +81,9 @@ export default class DynamicTabNavigator extends Component {
         style={{color: tintColor}}
       />
     )
-    return createAppContainer(createBottomTabNavigator(tabs,))
+    return createAppContainer(createBottomTabNavigator(tabs, {
+      tabBarComponent: TabBarComponent
+    }))
   }
   render() {
     NavigationUtil.navigation = this.props.navigation;
@@ -90,7 +91,7 @@ export default class DynamicTabNavigator extends Component {
     return <Tab/>;
   }
 }
-class tabBarComponent extends Component{
+class TabBarComponent extends Component{
   constructor(props) {
     super(props)
     this.theme = {
@@ -99,9 +100,16 @@ class tabBarComponent extends Component{
     }
   }
   render() {
+    const {routes, index} = this.props.navigation.state;
+    if (routes[index].params) {
+      const { theme } = routes[index].params;
+      if (theme && theme.updateTime > this.theme.updateTime) {
+        this.theme = theme
+      }
+    }
     return <BottomTabBar
       {...this.props}
-      activeTintColor={this.theme.tintColor}
+      activeTintColor={this.theme.tintColor || this.props.activeTintColor}
     />
   }
 }
