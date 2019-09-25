@@ -9,7 +9,7 @@ import NavigationUtil from '../navigator/NavigationUtil';
 export default class WelcomePage extends Component {
   render() {
     return (<View style={styles.container}>
-        <Image style={styles.imgage} source={{uri: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1568913910593&di=858733c95f8e2f8b5807592772a9f907&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fd02339d2b88b60b8dcb8729502234ce6e04ec51b14c27-07spLx_fw658'}}/>
+        <Image style={styles.imgage} source={{uri: 'http://pic1.win4000.com/wallpaper/2018-11-30/5c00de645d19b.jpg'}}/>
       </View>);
   }
   componentDidMount() {
@@ -19,7 +19,7 @@ export default class WelcomePage extends Component {
       NavigationUtil.resetToHomePage({
         navigation: this.props.navigation
       })
-    }, 2000)
+    }, 3000)
   }
   componentWillUnmount(): void {
     this.timer && clearTimeout(this.timer)

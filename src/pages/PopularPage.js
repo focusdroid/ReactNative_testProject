@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import { createMaterialTopTabNavigator, createAppContainer } from 'react-navigation';
+import {
+  createMaterialTopTabNavigator,
+  createAppContainer
+} from 'react-navigation';
 import {
   View,
   Text
@@ -10,7 +13,7 @@ import NavigationUtil from '../navigator/NavigationUtil';
 /*最热页面*/
 export default class PopularPage extends Component {
   render() {
-    const TabNavogator = createAppContainer(createMaterialTopTabNavigator({
+    const TabNavigator = createAppContainer(createMaterialTopTabNavigator({
       PopularTab1: {
         screen: PopularTab,
         navigationOptions: {
@@ -24,7 +27,7 @@ export default class PopularPage extends Component {
         }
       }
     }))
-    return (<TabNavogator/>);
+    return (<TabNavigator/>);
   }
 }
 class PopularTab extends Component {
