@@ -81,7 +81,7 @@ export default class DynamicTabNavigator extends Component {
         size={26}
         style={{color: tintColor}}
       />
-    ) //
+    )
     return createAppContainer(createBottomTabNavigator(tabs,))
   }
   render() {
