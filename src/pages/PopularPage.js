@@ -24,7 +24,7 @@ export default class PopularPage extends Component {
         screen: props => <PopularTab {...props} tabLabel={item}/>, // 动态路由传参
         navigationOptions: {
           title: item
-      }
+        }
       }
     })
     return tabs

@@ -38,7 +38,7 @@ const MainNavigator = createStackNavigator({
   initialRouteName: "HomePage"
 })
 
-const App = createSwitchNavigator({
+export const AppNavigator = createSwitchNavigator({
   Init: InitNavigator,
   Main: MainNavigator,
 }, {
@@ -46,6 +46,3 @@ const App = createSwitchNavigator({
     header: null
   }
 })
-
-const AppNavigator = createAppContainer(App)
-export default AppNavigator
