@@ -1,15 +1,13 @@
 import React from 'react';
 import {
   createStackNavigator,
-  createSwitchNavigator
+  createSwitchNavigator,
+  createAppContainer
 } from 'react-navigation';
 
 import WelcomePage from '../pages/WelcomePage';
 import HomePage from '../pages/HomePage';
 import DetailPage from '../pages/DetailPage'
-
-import { connect } from 'react-redux'
-import { createReactNavigationReduxMiddleware, createReduxContainer } from 'react-navigation-redux-helpers'
 
 /*配置欢迎页面，必须使用createSwitchNavigator，因为不能让这个页面在返回显示在屏幕上start*/
 const InitNavigator = createStackNavigator({
@@ -40,11 +38,11 @@ const MainNavigator = createStackNavigator({
   initialRouteName: "HomePage"
 })
 
-export default createSwitchNavigator({
+export default createAppContainer(createSwitchNavigator({
   Init: InitNavigator,
   Main: MainNavigator,
 }, {
   navigationOptions: {
     header: null
   }
-})
+}))
