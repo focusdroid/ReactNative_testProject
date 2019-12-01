@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { connect } from 'react-redux'
+
 import PopularPage from '../pages/PopularPage';
 import TrendingPage from '../pages/TrendingPage';
 import FavoritePage from '../pages/FavoritePage';
@@ -65,7 +67,7 @@ const TABS = {
     }
 }
 
-export default class DynamicTabNavigator extends Component {
+class DynamicTabNavigator extends Component {
   constructor(props) {
     super(props);
     console.disableYellowBox = true // 禁止显示底部的warnning
@@ -82,7 +84,9 @@ export default class DynamicTabNavigator extends Component {
       />
     )
     return createAppContainer(createBottomTabNavigator(tabs, {
-      tabBarComponent: TabBarComponent
+      tabBarComponent: props => {
+        return <TabBarComponent theme={this.props.theme} {...props}/>
+      }
     }))
   }
   render() {
@@ -113,3 +117,9 @@ class TabBarComponent extends Component{
     />
   }
 }
+
+const mapStateToProps = state => {
+  theme: state.theme.theme
+}
+
+export default connect(mapStateToProps)(DynamicTabNavigator)
