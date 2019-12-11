@@ -9,11 +9,10 @@ import actions from '../action/index'
 
 class TrendingPage extends Component {
   render() {
-    const { navigation } = this.props
     return (<View>
         <Text>TrendingPage</Text>
         <Button
-          title='改变主题颜色--红色'
+          title='改变主题颜色--绿色'
           onPress={() => {
             this.props.onThemeChange('#096')
           }}
@@ -23,9 +22,7 @@ class TrendingPage extends Component {
   }
 }
 
-const mapStateToProps = state => {
-
-}
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({
   onThemeChange: theme => dispatch(actions.onThemeChange(theme))
