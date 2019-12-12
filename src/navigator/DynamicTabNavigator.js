@@ -94,7 +94,6 @@ class DynamicTabNavigator extends Component {
     }))
   }
   render() {
-    NavigationUtil.navigation = this.props.navigation;
     const Tab = this._tabNavigator()
     return <Tab/>;
   }
