@@ -20,7 +20,7 @@ class HomePage extends Component {
   * */
   onBackPress = () => {
     const {dispatch, nav} = this.props
-    if (nav.routes[1].index ===0) { // RootNavigator中的MainNavigator的index为0
+    if (nav.routes[1].index === 0) { // RootNavigator中的MainNavigator的index为0
       return false
     }
     dispatch(NavigationActions.back())

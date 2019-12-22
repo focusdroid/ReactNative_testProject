@@ -11,7 +11,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import NavigationUtil from '../navigator/NavigationUtil'
 import { BottomTabBar } from 'react-navigation-tabs'
-import actions from '../action';
 
 const TABS = {
     PopularPage: {

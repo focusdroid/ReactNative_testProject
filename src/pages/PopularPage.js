@@ -53,6 +53,15 @@ class PopularTab extends Component {
         <Text onPress={() => {
           NavigationUtil.goPage({}, 'DetailPage')
         }}>跳转到详情页</Text>
+        <Text
+          onPress={() => {
+          NavigationUtil.goPage({},'ResquestPage')
+          }}>网络请求</Text>
+        <Text
+          onPress={() =>{
+            NavigationUtil.goPage({},'AsyncStoragePage')
+          }}
+        >AsyncStorage</Text>
       </View>
     );
   }

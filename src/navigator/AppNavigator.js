@@ -4,13 +4,15 @@ import {
   createSwitchNavigator,
   createAppContainer
 } from 'react-navigation';
-
-import WelcomePage from '../pages/WelcomePage';
-import HomePage from '../pages/HomePage';
-import DetailPage from '../pages/DetailPage'
 import { connect } from 'react-redux'
 import { createReactNavigationReduxMiddleware, createReduxContainer } from 'react-navigation-redux-helpers'
 export const rootCom = 'Init' // 设置根路由
+import WelcomePage from '../pages/WelcomePage';
+import HomePage from '../pages/HomePage';
+import DetailPage from '../pages/DetailPage'
+import ResquestPage from '../pages/ResquestPage';
+import AsyncStoragePage from '../pages/AsyncStoragePage';
+
 
 /*配置欢迎页面，必须使用createSwitchNavigator，因为不能让这个页面在返回显示在屏幕上start*/
 const InitNavigator = createStackNavigator({
@@ -35,8 +37,19 @@ const MainNavigator = createStackNavigator({
     navigationOptions: {
       // header: null,
     }
+  },
+  ResquestPage: {
+    screen: ResquestPage,
+    navigationOptions: {
+      tabBarLabel: "fetch"
+    }
+  },
+  AsyncStoragePage: {
+    screen: AsyncStoragePage,
+    navigationOptions: {
+      tabBarLabel: '本地存储'
+    }
   }
-
 },{
   initialRouteName: "HomePage"
 })
